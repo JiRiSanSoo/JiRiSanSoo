@@ -5,7 +5,7 @@ from .models import *
 def main (request):
   return render (request, 'main.html')  
 
-def detail(request):
+def detail (request):
   return render (request, 'detail.html')  
 
 def upload (request):

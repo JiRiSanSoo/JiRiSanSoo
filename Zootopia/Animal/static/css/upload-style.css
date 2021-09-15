@@ -47,16 +47,17 @@ header .upload-btn a{
   text-decoration:none;
   font-size: 13px;
   color: #fff;
-  
 }
 
-header .back-btn img {
-  
-  width: 20px;
-  height: 20px;
-  background-image: url(./images/outline_arrow_back_ios_black_24dp.png);
-}
+header .back-btn{
 
+}
+header .back-btn >img{
+  background-image: url(../image/back.png);
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
 
 section {
   width: 100%;

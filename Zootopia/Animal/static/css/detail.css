@@ -21,11 +21,13 @@ header h1 {
 header .btn-cover {
   width: 20%;
   height: 30px;
-  background-color: royalblue;
-
 }
 header .btn-cover .back-btn{
-   /* image */
+  background-image: url(../image/back.png);
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-size: contain;
 }
 
 header .none {

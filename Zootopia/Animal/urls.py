@@ -9,5 +9,5 @@ urlpatterns = [
     path('main/', views.main, name="main"),
     path('upload/', views.upload, name="upload"),
     path('detail/', views.detail, name="detail"),
-    path('profile/',views.profile, name="profile")
+    path('profile/',views.profile, name="profile"),
 ]

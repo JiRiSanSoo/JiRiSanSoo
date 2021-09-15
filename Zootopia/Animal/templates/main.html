@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,13 +8,14 @@
   <!--material icons  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js" integrity="sha512-nTHzMQK7lwWt8nL4KF6DhwLHluv6dVq/hNnj2PBN0xMl2KaMm1PM02csx57mmToPAodHmPsipoERRNn4pG7f+Q==" crossorigin="anonymous"></script> 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-  <link rel="stylesheet" href="../static/css/main-style.css">
-  <script defer src="../static/js/main.js"></script>
+  <link rel="stylesheet" href="{% static 'css/main-style.css' %}">
+  <script defer src="{%static 'js/main.js' %}"></script>
   <title>Zootopia</title> 
   </head>
+
   <body>
+
     <div id="map"></div>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3346db9637de84daa334492d7bf7369"></script>
     <script>
@@ -75,7 +76,7 @@
           <!-- plus 버튼 -->
           <div class="click click3">
           <a href="#">
-            <img src="../static/image/plus.png" alt="plus 사진">
+            <img src="{% static 'image/plus.png' %}" alt="plus 사진">
           </a></div>
         </footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
