@@ -209,4 +209,7 @@ $RECYCLE.BIN/
 # jirisannoo Scripts
 jirisansoo/
 
+# migrations
+migrations/
+
 # End of https://www.toptal.com/developers/gitignore/api/python,django
