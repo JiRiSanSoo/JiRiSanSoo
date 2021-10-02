@@ -4,20 +4,16 @@
  size : 375 * 667
  */
 
-
-html{
+html {
   font-size: 10px;
-  
 }
 
-body{
-  width: 100%;  
+body {
+  width: 100%;
   height: 100%;
 }
 
-
-
-#map{
+#map {
   display: block;
   position: fixed;
   width: 100%;
@@ -38,10 +34,10 @@ header {
 
 header .menu-btn {
   width: 13%;
-  height:40px;
+  height: 40px;
   margin-top: 17px;
   margin-left: 15px;
-  background-color:#fff;
+  background-color: #fff;
   border-radius: 100px;
   box-shadow: 5px 5px 5px #ddd;
   display: flex;
@@ -49,25 +45,25 @@ header .menu-btn {
   align-items: center;
 }
 
-#profile{
-  display:none;
+#profile {
+  display: none;
   width: 80%;
-  height:100%;
-  background-color:#fff;
+  height: 100%;
+  background-color: #fff;
   position: fixed;
   z-index: 999;
 }
 
-#profile .profile-header{
+#profile .profile-header {
   width: 100%;
   height: 70px;
-  border-bottom: 5px solid #C89D6C;
+  border-bottom: 5px solid #c89d6c;
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   align-items: center;
 }
 
-#profile .profile-header .profile-pic{
+#profile .profile-header .profile-pic {
   width: 50px;
   height: 50px;
   border-radius: 100px;
@@ -87,17 +83,15 @@ header .menu-btn {
   padding: 10px;
 }
 
-
-
-#profile .profile-list{
+#profile .profile-list {
   width: 100%;
   height: 200px;
 }
 
-#profile .profile-list li{
+#profile .profile-list li {
   transition: 2s;
 }
-#profile .profile-list li > a{
+#profile .profile-list li > a {
   display: inline-block;
   text-decoration: none;
   font-size: 17px;
@@ -106,7 +100,7 @@ header .menu-btn {
   margin-top: 20px;
   margin-left: 20px;
 }
-#profile .profile-list li a:hover{
+#profile .profile-list li a:hover {
   font-weight: 900;
   border-bottom: 1px dashed #000;
 }
@@ -125,8 +119,7 @@ header .menu-btn {
   background-size: 30px 22px;
   background-position: center;
 }
-header{
-
+header {
 }
 
 header .menu-btn {
@@ -136,8 +129,7 @@ header .menu-btn {
   z-index: 2;
 }
 
-
-header .menu-btn a{
+header .menu-btn a {
   display: inline-block;
   overflow: hidden;
   width: 100%;
@@ -148,7 +140,6 @@ header .menu-btn a{
   background-position: center;
 }
 
-
 /* header - 검색기능  */
 header .input-box {
   width: 83%;
@@ -156,16 +147,15 @@ header .input-box {
   margin-top: 15px;
 }
 
-header .input-box .box-size{
+header .input-box .box-size {
   width: 80%;
   height: 30px;
   border-radius: 13px;
-  border:1px solid #fff;
+  border: 1px solid #fff;
   padding-left: 20px;
   box-shadow: 2px 2px 2px#ddd;
-  
 }
-header .input-box .box-size:focus{
+header .input-box .box-size:focus {
   outline: none;
 }
 /* container 영역 */
@@ -180,12 +170,11 @@ header .input-box .box-size:focus{
   z-index: 99;
 }
 
-
 .container .item {
   width: 50px;
   height: 20px;
   background-color: #fff;
-  border:1px solid #fff;
+  border: 1px solid #fff;
   box-shadow: 2px 2px 2px rgb(229, 231, 221);
   display: flex;
   justify-content: center;
@@ -193,30 +182,26 @@ header .input-box .box-size:focus{
   margin-right: 10px;
   border-radius: 20px;
   margin-top: 10px;
-
 }
 
-.container .item a{
+.container .item a {
   text-decoration: none;
   font-size: 10px;
   color: #000;
   cursor: pointer;
-
 }
 
-.container .item:hover{
-  background-color:#C89D6C;
+.container .item:hover {
+  background-color: #c89d6c;
   transition: 1s;
   font-weight: bold;
   color: #fff;
 }
 
-
 /* footer 
   footer => 버튼 요소 3개 
  */
 .footer-nav {
-  
 }
 footer {
   display: flex;
@@ -226,11 +211,11 @@ footer {
   margin-top: 80%;
 }
 
- footer .click{
+footer .click {
   width: 40px;
   height: 40px;
-  border : 1px solid #fff;
-  border-radius: 100px  ;
+  border: 1px solid #fff;
+  border-radius: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -238,34 +223,39 @@ footer {
   margin-top: 20px;
   margin-right: 15px;
   box-shadow: 2px 2px 2px #ddd;
-
- }
-
-footer .click1 {
-  position:relative;
-  z-index: 999;
-  background-image: url(../image/1.png);
-  background-size:contain;
-
 }
 
-footer .click2{
+footer .click0 {
+  position: relative;
+  z-index: 999;
+  background-image: url(../image/0.png);
+  background-size: contain;
+}
+
+footer .click1 {
+  position: relative;
+  z-index: 999;
+  background-image: url(../image/1.png);
+  background-size: contain;
+}
+
+footer .click2 {
   position: relative;
   z-index: 999;
   background-image: url(../image/2.png);
   background-size: contain;
 }
 
-footer .click3{
-   position: relative;
-   z-index: 999;
-   margin-top: 60px;
-   background-color: #C89D6C;
-   background-size: contain;
+footer .click3 {
+  position: relative;
+  z-index: 999;
+  margin-top: 60px;
+  background-color: #c89d6c;
+  background-size: contain;
 }
 
 /* 좌표  div
 */
- .dsp-none{
-   display: none;
- }
+.dsp-none {
+  display: none;
+}
