@@ -6,6 +6,10 @@ html {
   font-family: "NanumSquareRound", sans-serif;
 }
 
+a:visited {
+  color: black;
+}
+
 #mainWrapper {
   width: 100%;
   display: flex;
@@ -166,11 +170,12 @@ html {
   justify-content: space-around;
 }
 
-.location {
-  font-size: 1.6rem;
+.address {
+  color: #c89d6c;
+  font-size: 1.2rem;
   font-weight: bold;
 }
-.writer {
+.author {
   font-size: 1.6rem;
 }
 /* 메인 끝 */
@@ -182,6 +187,11 @@ html {
 
 .block-on {
   display: block;
+}
+
+.deco-none {
+  text-decoration-line: none;
+  text-decoration: none;
 }
 
 /* 컨테이너 끝 */
