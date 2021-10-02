@@ -15,9 +15,9 @@
     <!-- 상단 검색 영역 시작 -->
     <div id="header">
       <div class="btn-area">
-        <span onclick="goBackPage()">
+        <a href="{% url 'main' %}">
           <img id="leftArrow" src="{% static 'image/left-arrow.png' %}" alt="이전 페이지">
-        </span>
+        </a>
       </div>
       <div class="input-area">
         <form id="search-form" action="{% url 'result' %}" method="GET">
