@@ -59,7 +59,7 @@
             </div>
           {% endif %}
           {% for post in names %}
-           <a href="{% url 'detail' post.id %}">
+           <a class="deco-none" href="{% url 'detail' post.id %}">
                 <div class="recent-post">
                   <div class="recent-post-profile-area">
                     {% if post.image %}
@@ -79,8 +79,8 @@
                     </div>
                   </div>
                   <div class="recent-post-right-area">
-                    <p class="location">{{ post.location }}</p>
-                    <p class="writer">{{ post.name }}</p>
+                    <p class="author">{{ post.name }}</p>
+                    <p class="address">{{ post.address }}</p>
                   </div>
                 </div>
             </a>
@@ -95,30 +95,30 @@
             </div>
           {% endif %}
           {% for post in species %}
-           <a href="{% url 'detail' post.id %}">
-                <div class="recent-post">
-                  <div class="recent-post-profile-area">
-                    {% if post.image %}
-                    <img class="profile-img" src="{{ post.image.url }}" alt="">
-                    {% else %}
-                    <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
-                    {% endif %}
+            <a class="deco-none" href="{% url 'detail' post.id %}">
+              <div class="recent-post">
+                <div class="recent-post-profile-area">
+                  {% if post.image %}
+                  <img class="profile-img" src="{{ post.image.url }}" alt="">
+                  {% else %}
+                  <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
+                  {% endif %}
+                </div>
+                <div class="recent-post-left-area">
+                  <div class="recent-post-left-top-area">
+                    <p class="animal-name">{{ post.name }}</p>
+                    <p class="animal-border">|</p>
+                    <p class="animal-species">{{ post.species }}</p>
                   </div>
-                  <div class="recent-post-left-area">
-                    <div class="recent-post-left-top-area">
-                      <p class="animal-name">{{ post.name }}</p>
-                      <p class="animal-border">|</p>
-                      <p class="animal-species">{{ post.species }}</p>
-                    </div>
-                    <div class="recent-post-left-bottom-area">
-                      <p class="hash-tag">{{ post.hash_tag }}</p>
-                    </div>
-                  </div>
-                  <div class="recent-post-right-area">
-                    <p class="location">{{ post.location }}</p>
-                    <p class="writer">{{ post.name }}</p>
+                  <div class="recent-post-left-bottom-area">
+                    <p class="hash-tag">{{ post.hash_tag }}</p>
                   </div>
                 </div>
+                <div class="recent-post-right-area">
+                  <p class="author">{{ post.name }}</p>
+                  <p class="address">{{ post.address }}</p>
+                </div>
+              </div>
             </a>
           {% endfor %}
         </div>
@@ -131,42 +131,43 @@
             </div>
           {% endif %}
           {% for post in addresses %}
-           <a href="{% url 'detail' post.id %}">
-                <div class="recent-post">
-                  <div class="recent-post-profile-area">
-                    {% if post.image %}
-                    <img class="profile-img" src="{{ post.image.url }}" alt="">
-                    {% else %}
-                    <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
-                    {% endif %}
+            <a class="deco-none" href="{% url 'detail' post.id %}">
+              <div class="recent-post">
+                <div class="recent-post-profile-area">
+                  {% if post.image %}
+                  <img class="profile-img" src="{{ post.image.url }}" alt="">
+                  {% else %}
+                  <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
+                  {% endif %}
+                </div>
+                <div class="recent-post-left-area">
+                  <div class="recent-post-left-top-area">
+                    <p class="animal-name">{{ post.name }}</p>
+                    <p class="animal-border">|</p>
+                    <p class="animal-species">{{ post.species }}</p>
                   </div>
-                  <div class="recent-post-left-area">
-                    <div class="recent-post-left-top-area">
-                    <a  href="{%url 'detail' post.id%} ">
-                     <p class="animal-name">{{ post.name }}</p>
-                    </a>
-                      <p class="animal-border">|</p>
-                      <p class="animal-species">{{ post.species }}</p>
-                    </div>
-                    <div class="recent-post-left-bottom-area">
-                      <p class="hash-tag">{{ post.hash_tag }}</p>
-                    </div>
-                  </div>
-                  <div class="recent-post-right-area">
-                    <p class="location">{{ post.location }}</p>
-                    <p class="writer">{{ post.name }}</p>
+                  <div class="recent-post-left-bottom-area">
+                    <p class="hash-tag">{{ post.hash_tag }}</p>
                   </div>
                 </div>
+                <div class="recent-post-right-area">
+                  <p class="author">{{ post.name }}</p>
+                  <p class="address">{{ post.address }}</p>
+                </div>
+              </div>
             </a>
           {% endfor %}
         </div>
         <!-- 주소 컨테이너 끝 -->
-      </div>
-      <!-- 통합검색 탭 끝 -->
-      <!-- 동물이름 탭 시작 -->
-      <div id="name-tab" class="block-off">
+        <!-- 작성자 컨테이너 시작 -->
         <div class="result-container">
-          {% for post in names %}
+          {% if authors %}
+            <div onclick="openNameTab()">
+              <p class="top-title">작성자 ></p>
+            </div>
+          {% endif %}
+          {% for post in authors %}
+           <a class="deco-none" href="{% url 'detail' post.id %}">
                 <div class="recent-post">
                   <div class="recent-post-profile-area">
                     {% if post.image %}
@@ -182,14 +183,85 @@
                       <p class="animal-species">{{ post.species }}</p>
                     </div>
                     <div class="recent-post-left-bottom-area">
-                      <p class="hash-tag">{{ post.hash_tag }}</p>
+                      <p class="hash-tag">{{ post.hash_tag }}</p>   
                     </div>
                   </div>
                   <div class="recent-post-right-area">
-                    <p class="location">{{ post.location }}</p>
-                    <p class="writer">{{ post.name }}</p>
+                    <p class="author">{{ post.name }}</p>
+                    <p class="address">{{ post.address }}</p>
                   </div>
                 </div>
+            </a>
+          {% endfor %}
+        </div>
+        <!-- 작성자 컨테이너 끝 -->
+        <!-- 해시태그 컨테이너 시작 -->
+        <div class="result-container">
+          {% if hashTags %}
+            <div onclick="openNameTab()">
+              <p class="top-title">#태그 ></p>
+            </div>
+          {% endif %}
+          {% for post in hashTags %}
+           <a class="deco-none" href="{% url 'detail' post.id %}">
+                <div class="recent-post">
+                  <div class="recent-post-profile-area">
+                    {% if post.image %}
+                    <img class="profile-img" src="{{ post.image.url }}" alt="">
+                    {% else %}
+                    <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
+                    {% endif %}
+                  </div>
+                  <div class="recent-post-left-area">
+                    <div class="recent-post-left-top-area">
+                      <p class="animal-name">{{ post.name }}</p>
+                      <p class="animal-border">|</p>
+                      <p class="animal-species">{{ post.species }}</p>
+                    </div>
+                    <div class="recent-post-left-bottom-area">
+                      <p class="hash-tag">{{ post.hash_tag }}</p>   
+                    </div>
+                  </div>
+                  <div class="recent-post-right-area">
+                    <p class="author">{{ post.name }}</p>
+                    <p class="address">{{ post.address }}</p>
+                  </div>
+                </div>
+            </a>
+          {% endfor %}
+        </div>
+        <!-- 해시태그 컨테이너 끝 -->
+      </div>
+      <!-- 통합검색 탭 끝 -->
+      <!-- 동물이름 탭 시작 -->
+      <div id="name-tab" class="block-off">
+        <div class="result-container">
+          {% for post in names %}
+          <a class="deco-none" href="{% url 'detail' post.id %}">
+            <div class="recent-post">
+              <div class="recent-post-profile-area">
+                {% if post.image %}
+                <img class="profile-img" src="{{ post.image.url }}" alt="">
+                {% else %}
+                <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
+                {% endif %}
+              </div>
+              <div class="recent-post-left-area">
+                <div class="recent-post-left-top-area">
+                  <p class="animal-name">{{ post.name }}</p>
+                  <p class="animal-border">|</p>
+                  <p class="animal-species">{{ post.species }}</p>
+                </div>
+                <div class="recent-post-left-bottom-area">
+                  <p class="hash-tag">{{ post.hash_tag }}</p>
+                </div>
+              </div>
+              <div class="recent-post-right-area">
+                <p class="author">{{ post.name }}</p>
+                <p class="address">{{ post.address }}</p>
+              </div>
+            </div>
+          </a>
           {% endfor %}
         </div>
       </div>
@@ -198,29 +270,31 @@
       <div id="species-tab" class="block-off">
         <div class="result-container">
           {% for post in species %}
-                <div class="recent-post">
-                  <div class="recent-post-profile-area">
-                    {% if post.image %}
-                    <img class="profile-img" src="{{ post.image.url }}" alt="">
-                    {% else %}
-                    <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
-                    {% endif %}
+            <a class="deco-none" href="{% url 'detail' post.id %}">
+              <div class="recent-post">
+                <div class="recent-post-profile-area">
+                  {% if post.image %}
+                  <img class="profile-img" src="{{ post.image.url }}" alt="">
+                  {% else %}
+                  <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
+                  {% endif %}
+                </div>
+                <div class="recent-post-left-area">
+                  <div class="recent-post-left-top-area">
+                    <p class="animal-name">{{ post.name }}</p>
+                    <p class="animal-border">|</p>
+                    <p class="animal-species">{{ post.species }}</p>
                   </div>
-                  <div class="recent-post-left-area">
-                    <div class="recent-post-left-top-area">
-                      <p class="animal-name">{{ post.name }}</p>
-                      <p class="animal-border">|</p>
-                      <p class="animal-species">{{ post.species }}</p>
-                    </div>
-                    <div class="recent-post-left-bottom-area">
-                      <p class="hash-tag">{{ post.hash_tag }}</p>
-                    </div>
-                  </div>
-                  <div class="recent-post-right-area">
-                    <p class="location">{{ post.location }}</p>
-                    <p class="writer">{{ post.name }}</p>
+                  <div class="recent-post-left-bottom-area">
+                    <p class="hash-tag">{{ post.hash_tag }}</p>
                   </div>
                 </div>
+                <div class="recent-post-right-area">
+                  <p class="author">{{ post.name }}</p>
+                  <p class="address">{{ post.address }}</p>
+                </div>
+              </div>
+            </a>
           {% endfor %}
         </div>
       </div>
@@ -228,30 +302,32 @@
       <!-- 주소 탭 시작 -->
       <div id="address-tab" class="block-off">
         <div class="result-container">
-          {% for post in adresses %}
-                <div class="recent-post">
-                  <div class="recent-post-profile-area">
-                    {% if post.image %}
-                    <img class="profile-img" src="{{ post.image.url }}" alt="">
-                    {% else %}
-                    <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
-                    {% endif %}
+          {% for post in addresses %}
+            <a class="deco-none" href="{% url 'detail' post.id %}">
+              <div class="recent-post">
+                <div class="recent-post-profile-area">
+                  {% if post.image %}
+                  <img class="profile-img" src="{{ post.image.url }}" alt="">
+                  {% else %}
+                  <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
+                  {% endif %}
+                </div>
+                <div class="recent-post-left-area">
+                  <div class="recent-post-left-top-area">
+                    <p class="animal-name">{{ post.name }}</p>
+                    <p class="animal-border">|</p>
+                    <p class="animal-species">{{ post.species }}</p>
                   </div>
-                  <div class="recent-post-left-area">
-                    <div class="recent-post-left-top-area">
-                      <p class="animal-name">{{ post.name }}</p>
-                      <p class="animal-border">|</p>
-                      <p class="animal-species">{{ post.species }}</p>
-                    </div>
-                    <div class="recent-post-left-bottom-area">
-                      <p class="hash-tag">{{ post.hash_tag }}</p>
-                    </div>
-                  </div>
-                  <div class="recent-post-right-area">
-                    <p class="location">{{ post.location }}</p>
-                    <p class="writer">{{ post.name }}</p>
+                  <div class="recent-post-left-bottom-area">
+                    <p class="hash-tag">{{ post.hash_tag }}</p>
                   </div>
                 </div>
+                <div class="recent-post-right-area">
+                  <p class="author">{{ post.name }}</p>
+                  <p class="address">{{ post.address }}</p>
+                </div>
+              </div>
+            </a>
           {% endfor %}
         </div>
       </div>
@@ -260,29 +336,31 @@
       <div id="author-tab" class="block-off">
         <div class="result-container">
           {% for post in authors %}
-                <div class="recent-post">
-                  <div class="recent-post-profile-area">
-                    {% if post.image %}
-                    <img class="profile-img" src="{{ post.image.url }}" alt="">
-                    {% else %}
-                    <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
-                    {% endif %}
+            <a class="deco-none" href="{% url 'detail' post.id %}">
+              <div class="recent-post">
+                <div class="recent-post-profile-area">
+                  {% if post.image %}
+                  <img class="profile-img" src="{{ post.image.url }}" alt="">
+                  {% else %}
+                  <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
+                  {% endif %}
+                </div>
+                <div class="recent-post-left-area">
+                  <div class="recent-post-left-top-area">
+                    <p class="animal-name">{{ post.name }}</p>
+                    <p class="animal-border">|</p>
+                    <p class="animal-species">{{ post.species }}</p>
                   </div>
-                  <div class="recent-post-left-area">
-                    <div class="recent-post-left-top-area">
-                      <p class="animal-name">{{ post.name }}</p>
-                      <p class="animal-border">|</p>
-                      <p class="animal-species">{{ post.species }}</p>
-                    </div>
-                    <div class="recent-post-left-bottom-area">
-                      <p class="hash-tag">{{ post.hash_tag }}</p>
-                    </div>
-                  </div>
-                  <div class="recent-post-right-area">
-                    <p class="location">{{ post.location }}</p>
-                    <p class="writer">{{ post.name }}</p>
+                  <div class="recent-post-left-bottom-area">
+                    <p class="hash-tag">{{ post.hash_tag }}</p>
                   </div>
                 </div>
+                <div class="recent-post-right-area">
+                  <p class="author">{{ post.name }}</p>
+                  <p class="address">{{ post.address }}</p>
+                </div>
+              </div>
+            </a>
           {% endfor %}
         </div>
       </div>
@@ -291,29 +369,31 @@
       <div id="hash-tag-tab" class="block-off">
         <div class="result-container">
           {% for post in hashTags %}
-                <div class="recent-post">
-                  <div class="recent-post-profile-area">
-                    {% if post.image %}
-                    <img class="profile-img" src="{{ post.image.url }}" alt="">
-                    {% else %}
-                    <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
-                    {% endif %}
+            <a class="deco-none" href="{% url 'detail' post.id %}">
+              <div class="recent-post">
+                <div class="recent-post-profile-area">
+                  {% if post.image %}
+                  <img class="profile-img" src="{{ post.image.url }}" alt="">
+                  {% else %}
+                  <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
+                  {% endif %}
+                </div>
+                <div class="recent-post-left-area">
+                  <div class="recent-post-left-top-area">
+                    <p class="animal-name">{{ post.name }}</p>
+                    <p class="animal-border">|</p>
+                    <p class="animal-species">{{ post.species }}</p>
                   </div>
-                  <div class="recent-post-left-area">
-                    <div class="recent-post-left-top-area">
-                      <p class="animal-name">{{ post.name }}</p>
-                      <p class="animal-border">|</p>
-                      <p class="animal-species">{{ post.species }}</p>
-                    </div>
-                    <div class="recent-post-left-bottom-area">
-                      <p class="hash-tag">{{ post.hash_tag }}</p>
-                    </div>
-                  </div>
-                  <div class="recent-post-right-area">
-                    <p class="location">{{ post.location }}</p>
-                    <p class="writer">{{ post.name }}</p>
+                  <div class="recent-post-left-bottom-area">
+                    <p class="hash-tag">{{ post.hash_tag }}</p>
                   </div>
                 </div>
+                <div class="recent-post-right-area">
+                  <p class="author">{{ post.name }}</p>
+                  <p class="address">{{ post.address }}</p>
+                </div>
+              </div>
+            </a>
           {% endfor %}
         </div>
       </div>
