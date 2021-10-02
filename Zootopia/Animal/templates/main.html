@@ -21,14 +21,6 @@
 
     <div id="map"></div>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f3346db9637de84daa334492d7bf7369"></script>
-    <!-- <script>
-      var container = document.getElementById('map');
-      var options = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667),
-        level: 3
-      };
-      var map = new kakao.maps.Map(container, options);
-    </script> -->
     <div id="profile">
       <div class="profile-header">
         
@@ -51,11 +43,10 @@
         </div>
         
         <!-- 검색기능 -->
-      
         <div class="input-box">
-          <form action="">
-         <input type="text" placeholder="주소,장소,동물 검색" class="box-size">
-          </form>
+          <a href="{% url 'search' %}">
+            <input type="text" placeholder="주소,장소,동물 검색" class="box-size">
+          </a>
         </div>
 
       </header>
