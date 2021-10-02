@@ -62,29 +62,31 @@
         <div class="recent-update-content">
           <!-- 최근 글 반복문 시작 -->
           {% for post in posts %}
-          <div class="recent-post">
-            <div class="recent-post-profile-area">
-              {% if post.image %}
-              <img class="profile-img" src="{{ post.image.url }}" alt="">
-              {% else %}
-              <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
-              {% endif %}
-            </div>
-            <div class="recent-post-left-area">
-              <div class="recent-post-left-top-area">
-                <p class="animal-name">{{ post.name }}</p>
-                <p class="animal-border">|</p>
-                <p class="animal-species">{{ post.species }}</p>
+          <a class="deco-none" href="{% url 'detail' post.id %}">
+            <div class="recent-post">
+              <div class="recent-post-profile-area">
+                {% if post.image %}
+                <img class="profile-img" src="{{ post.image.url }}" alt="">
+                {% else %}
+                <img class="profile-img" src="{% static 'image/cat.jpg' %}" alt="">
+                {% endif %}
               </div>
-              <div class="recent-post-left-bottom-area">
-                <p class="hash-tag">{{ post.hash_tag }}</p>
+              <div class="recent-post-left-area">
+                <div class="recent-post-left-top-area">
+                  <p class="animal-name">{{ post.name }}</p>
+                  <p class="animal-border">|</p>
+                  <p class="animal-species">{{ post.species }}</p>
+                </div>
+                <div class="recent-post-left-bottom-area">
+                  <p class="hash-tag">{{ post.hash_tag }}</p>
+                </div>
+              </div>
+              <div class="recent-post-right-area">
+                <p class="author">{{ post.name }}</p>
+                <p class="address">{{ post.address }}</p>
               </div>
             </div>
-            <div class="recent-post-right-area">
-              <p class="address">{{ post.address }}</p>
-              <p class="writer">{{ post.name }}</p>
-            </div>
-          </div>
+          </a>
           {% endfor %}
           <!-- 최근 글 반복문 끝 -->
         </div>
