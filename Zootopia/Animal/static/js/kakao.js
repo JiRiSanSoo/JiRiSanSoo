@@ -1,3 +1,6 @@
+let overlays = [];
+
+
 // 1. 기본위치를 --카카오로 -- 설정 (필수)
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
   mapOption = { 
@@ -23,6 +26,12 @@ navigator.geolocation.getCurrentPosition(function(position) {
 function setAllLocation(){
   let list_lat = document.querySelector("#list-lat").innerText.split(',');
   let list_lon = document.querySelector("#list-lon").innerText.split(',');
+  let list_name = document.querySelector("#list-name").innerText.split(',');
+  let list_image = document.querySelector("#list-image").innerText.split(',');
+  let list_species = document.querySelector("#list-species").innerText.split(',');
+  let list_body = document.querySelector("#list-body").innerText.split(',');
+  let list_address = document.querySelector("#list-address").innerText.split(',');
+  let list_id = document.querySelector("#list-id").innerText.split(',');
   let locations = new Array();
 
   // 위도 경도 좌표리스트로 다시 저장
@@ -36,12 +45,65 @@ function setAllLocation(){
   for(let index = 0; index < list_lat.length; index++){
     let marker = new kakao.maps.Marker({
       map: map,
-      position: locations[index]
+      position: locations[index],
+      title: list_name[index]
     });
   
-  // 마커가 지도 위에 표시되도록 설정합니다
-  marker.setMap(map);
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+
+    let content = '<div class="wrap">' + 
+                  '    <div class="info">' + 
+                  '        <div class="title">' + 
+                               list_name[index] + '   ㅣ   ' + list_species[index] +
+                  '        </div>' + 
+                  '        <div class="body">' + 
+                  '            <div class="img">' +
+                  '                <img src="' + list_image[index] + '" width="73" height="70">' +
+                  '           </div>' + 
+                  '            <div class="desc">' + 
+                  '                <div class="ellipsis">'+ list_body[index] +'</div>' + 
+                  '                <div class="jibun ellipsis">'+ list_address[index] +'</div>' + 
+                  '                <div><a href="/animal/detail/'+ list_id[index] +'" class="link">디테일</a></div>' + 
+                  '            </div>' + 
+                  '        </div>' + 
+                  '    </div>' +    
+                  '</div>';
+
+    var overlay = new kakao.maps.CustomOverlay({
+      content: content,
+      map: map,
+      position: marker.getPosition()       
+    });
+
+    // 오버레이 저장
+    overlays.push(overlay);
   }
+  
+}
+
+function displayOverlays(){
+  let overlayButton = document.querySelector("#btn-overlay");
+
+  // 디스플레이 상태일 경우
+  if (overlayButton.classList.contains("display")){ 
+    for(let i = 0;i<overlays.length;i++){
+      overlays[i].setMap(null);
+    }
+    overlayButton.classList.remove("display");
+    overlayButton.innerText = "디테일 보기";
+  } //디스플레이 상태가 아닐 경우
+  else{
+    for(let i = 0;i<overlays.length;i++){
+      overlays[i].setMap(map);
+    }
+    overlayButton.classList.add("display");
+    overlayButton.innerText = "디테일 지우기";
+  }
+}
+
+function closeOverlay() {
+  overlay.setMap(null);     
 }
 
 

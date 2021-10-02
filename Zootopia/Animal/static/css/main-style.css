@@ -171,7 +171,7 @@ header .input-box .box-size:focus {
 }
 
 .container .item {
-  width: 50px;
+  width: 80px;
   height: 20px;
   background-color: #fff;
   border: 1px solid #fff;
@@ -182,18 +182,11 @@ header .input-box .box-size:focus {
   margin-right: 10px;
   border-radius: 20px;
   margin-top: 10px;
+  font-weight: bold;
 }
 
-.container .item a {
-  text-decoration: none;
-  font-size: 10px;
-  color: #000;
-  cursor: pointer;
-}
-
-.container .item:hover {
-  background-color: #c89d6c;
-  transition: 1s;
+.display {
+  background-color: #c89d6c !important;
   font-weight: bold;
   color: #fff;
 }
