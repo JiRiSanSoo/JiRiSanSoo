@@ -8,7 +8,7 @@ from django.db.models.deletion import CASCADE
 class Post(models.Model):
   
   # 동물 이름
-  name = models.CharField(max_length=20)
+  name = models.CharField(max_length=20, default="이름없음")
   # 동물 종
   species = models.CharField(max_length=20, null=True)
   # 동물 품종
